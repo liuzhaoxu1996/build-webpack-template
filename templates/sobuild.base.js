@@ -12,12 +12,14 @@ module.exports = {
             {
                 test: /.js$/,
                 use: [
-                    <%if (webpack['thread-loader']) {%>{
+                    <%_ if (webpack['thread-loader']) { -%>
+                    {
                         loader: "thread-loader",
                         options: {
                             workers: 3,
                         },
-                    },<%}%>
+                    },
+                    <%_}-%>
                     "babel-loader?cacheDirectory=true",
                 ],
                 exclude: /node_modules/,
@@ -27,23 +29,30 @@ module.exports = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
-                    <%if (webpack['postcss-loader']) {%>{
+                    <%_ if (webpack['postcss-loader']) {-%>
+                    {
                         loader: 'postcss-loader',
-                    }<%}%>
+                    }
+                    <%_}-%>
                 ],
             },
-            <%if (webpack['less-loader']) {%>{
+            <%_ if (webpack['less-loader']) {-%>
+            {
                 test: /.less$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
                     'less-loader',
-                    <%if (webpack['postcss-loader']) {%>{
+                    <%if (webpack['postcss-loader']) {-%>
+                    {
                         loader: 'postcss-loader',
-                    }<%}%>
+                    }
+                    <%_}-%>
                 ],
-            },<%}%>
-            <%if (webpack['file-loader']) {%>{
+            },
+            <%_}-%>
+            <%_ if (webpack['file-loader']) {-%>
+            {
                 test: /.(png|jpg|gif|jpeg)$/,
                 use: [
                     {
@@ -53,18 +62,20 @@ module.exports = {
                         },
                     },
                 ],
-            },<%}%>
+            },
+            <%_}-%>
         ],
     },
     optimization: {
         minimize: true,
         minimizer: [
-            <%if (webpack['css-minimizer-webpack-plugin']) {%>
+            <%_ if (webpack['css-minimizer-webpack-plugin']) {-%>
             new CssMinimizerPlugin({
                 parallel: true,
                 cache: true,
-            }),<%}%>
-            <%if (webpack['terser-webpack-plugin']) {%>
+            }),
+            <%_}-%>
+            <%_ if (webpack['terser-webpack-plugin']) {-%>
             new TerserPlugin({
                 parallel: true // 默认值：2*cpu -1
                 // parallel: 4,
@@ -82,24 +93,26 @@ module.exports = {
                     ie8: true,
                     safari10: true,
                 },
-            }),<%}%>
+            }),
+            <%_}-%>
         ],
-        <%if (webpack['split-chunks-plugin']) {%>
+        <%_ if (webpack['split-chunks-plugin']) {-%>
         splitChunks: {
             // include all types of chunks
             chunks: 'all'
-        },<%}%>
+        },
+        <%_}-%>
     },
     plugins: [
         new CleanWebpackPlugin(),
-        <%if (webpack['mini-css-extract-plugin']) {%>
+        <%_ if (webpack['mini-css-extract-plugin']) {-%>
         new MiniCssExtractPlugin({
             filename: '[name].css',
         }),
-        <%}%>
-        <%if (webpack['purgecss-webpack-plugin']) {%>
+        <%_}-%>
+        <%_ if (webpack['purgecss-webpack-plugin']) {-%>
         new PurgeCSSPlugin(),
-        <%}%>
+        <%_}-%>
         new HardSourceWebpackPlugin(),
         new FriendlyErrorsWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
