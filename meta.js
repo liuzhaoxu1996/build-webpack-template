@@ -100,6 +100,7 @@ module.exports = {
         },
     },
     filters: {
+        '.npmrc': 'autoInstall === "npm"',
         '.yarnrc': 'autoInstall === "yarn"',
     },
     complete: function (data, { chalk }) {

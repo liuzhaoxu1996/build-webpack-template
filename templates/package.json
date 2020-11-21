@@ -1,8 +1,8 @@
 {
-	"name": "<%= name %>",
+	"name": "<%_= name -%>",
 	"version": "1.0.0",
-	"description": "<%= description %>",
-	"author": "<%= author %>",
+	"description": "<%_= description -%>",
+	"author": "<%_= author -%>",
 	"scripts": {
 		"so:dev": "webpack --watch --config sobuild/sobuild.dev.js",
 		"so:serve": "webpack serve --config sobuild/sobuild.dev.js --open 'Google Chrome'",
@@ -20,40 +20,40 @@
 		"css-loader": "^5.0.1",
 		"css-minimizer-webpack-plugin": "^1.1.5",
 		"eslint": "^7.13.0",
-		<% if(webpack.['file-loader']) { %>
+		<%_ if(webpack.['file-loader']) { -%>
 		"file-loader": "^6.2.0",
-		<% } %>
+		<%_ } -%>
 		"webpack-dev-server": "^3.11.0",
 		"friendly-errors-webpack-plugin": "^1.7.0",
 		"@q/sofe-eslint": "^1.0.6",
 		"@q/sofe-stylelint": "^1.0.7",
-		<% if(webpack['css-minimizer-webpack-plugin']) { %>
+		<%_ if(webpack['css-minimizer-webpack-plugin']) { -%>
 		"css-minimizer-webpack-plugin": "^1.1.5",
-		<% } %>
-		<% if(webpack['html-webpack-plugin']) { %>
+		<%_ } -%>
+		<%_ if(webpack['html-webpack-plugin']) { -%>
 		"html-webpack-plugin": "^4.5.0",
-		<% } %>
-		<% if(webpack['less-loader']) { %>
+		<%_ } -%>
+		<%_ if(webpack['less-loader']) { -%>
 		"less-loader": "^7.1.0",
-		<% } %>
-		<% if(webpack['mini-css-extract-plugin']) { %>
+		<%_ } -%>
+		<%_ if(webpack['mini-css-extract-plugin']) { -%>
 		"mini-css-extract-plugin": "^1.3.1",
-		<% } %>
-		<% if(webpack['purgecss-webpack-plugin']) { %>
+		<%_ } -%>
+		<%_ if(webpack['purgecss-webpack-plugin']) { -%>
 		"purgecss-webpack-plugin": "^3.0.0",
-		<% } %>
-		<% if(webpack['purgecss-webpack-plugin']) { %>
+		<%_ } -%>
+		<%_ if(webpack['purgecss-webpack-plugin']) { -%>
 		"purgecss-webpack-plugin": "^3.0.0",
-		<% } %>
-		<% if(webpack['terser-webpack-plugin']) { %>
+		<%_ } -%>
+		<%_ if(webpack['terser-webpack-plugin']) { -%>
 		"terser-webpack-plugin": "^5.0.3",
-		<% } %>
-		<% if(webpack['ts-loader']) {%>
+		<%_ } -%>
+		<%_ if(webpack['ts-loader']) {-%>
 		"ts-loader": "^8.0.11",
-		<% } %>
-		<% if(webpack['postcss-loader']) {%>
+		<%_ } -%>
+		<%_ if(webpack['postcss-loader']) {-%>
 		"postcss-loader": "4.1.0",
-		<% } %>
+		<%_ } -%>
 		"webpack-merge": "^5.4.0"
 	},
 	"engines": {
