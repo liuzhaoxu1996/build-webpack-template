@@ -1,8 +1,8 @@
 {
-	"name": "<%_= name -%>",
+	"name": "<%= name -%>",
 	"version": "1.0.0",
-	"description": "<%_= description -%>",
-	"author": "<%_= author -%>",
+	"description": "<%= description -%>",
+	"author": "<%= author -%>",
 	"scripts": {
 		"so:dev": "webpack --watch --config sobuild/sobuild.dev.js",
 		"so:serve": "webpack serve --config sobuild/sobuild.dev.js --open 'Google Chrome'",
