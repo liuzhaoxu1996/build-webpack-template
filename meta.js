@@ -76,6 +76,16 @@ module.exports = {
                 },
             ],
         },
+        skipInterpolation: [
+            ".babelrc",
+            ".eslintrc.js",
+            ".npmrc",
+            ".yarnrc",
+            ".prettierignore",
+            ".prettierrc",
+            "stylelint.config.js"
+            ".gitignore",
+        ],
         autoInstall: {
             type: 'list',
             message:
