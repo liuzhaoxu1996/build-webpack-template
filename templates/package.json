@@ -20,7 +20,7 @@
 		"css-loader": "^5.0.1",
 		"css-minimizer-webpack-plugin": "^1.1.5",
 		"eslint": "^7.13.0",
-		<%_ if(webpack.['file-loader']) { -%>
+		<%_ if(webpack['file-loader']) { -%>
 		"file-loader": "^6.2.0",
 		<%_ } -%>
 		"webpack-dev-server": "^3.11.0",
