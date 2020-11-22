@@ -55,11 +55,6 @@ module.exports = {
                     short: 'file',
                 },
                 {
-                    name: 'html-webpack-plugin: 默认根据配置将 css，js 文件注入到 html',
-                    value: 'html-webpack-plugin',
-                    short: 'html',
-                },
-                {
                     name: 'mini-css-extract-plugin: 取代 style-loader，提取 js 中的 css 成单独文件',
                     value: 'mini-css-extract-plugin',
                     short: 'miniCss',

@@ -1,4 +1,3 @@
-const path = require('path');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
@@ -36,7 +35,11 @@ module.exports = {
             {
                 test: /.css$/,
                 use: [
+                    <%_ if (webpack['mini-css-extract-plugin']) {-%>
                     MiniCssExtractPlugin.loader,
+                    <%_ else {-%>
+                    style-loader,
+                    <%_}-%>
                     'css-loader',
                     <%_ if (webpack['postcss-loader']) {-%>
                     {
@@ -49,7 +52,11 @@ module.exports = {
             {
                 test: /.less$/,
                 use: [
+                    <%_ if (webpack['mini-css-extract-plugin']) {-%>
                     MiniCssExtractPlugin.loader,
+                    <%_ else {-%>
+                    style-loader,
+                    <%_}-%>
                     'css-loader',
                     'less-loader',
                     <%if (webpack['postcss-loader']) {-%>

@@ -1,6 +1,8 @@
+const glob = require('glob');
+const path = require('path');
 const path = require('path');
 const merge = require('webpack-merge');
-const baseConfig = require(path.join(process.env.Home, '.sobuild/templates/sobuild.base.js'));
+const baseConfig = require(path.join(process.env.Home, '.sobuild-tempaltes/webpack/sobuild.base.js'));
 
 const soBuildConfig = {
     entry: {},
@@ -9,6 +11,11 @@ const soBuildConfig = {
         rules: [
         ],
     },
+    resolve: {
+        extensions: ['.js', '.css'],
+        alias: {
+        }
+    }, 
     optimization: {
     },
     plugins: [
