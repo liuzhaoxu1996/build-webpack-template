@@ -8,6 +8,7 @@
 		"so:serve": "webpack serve --config sobuild/sobuild.dev.js --open 'Google Chrome'",
 		"so:prod": "webpack --watch --config sobuild/sobuild.prod.js"
 	},
+	"dependencies": {},
 	"devDependencies": {
 		"glob": "^7.1.6",
 		"@babel/core": "^7.12.3",
