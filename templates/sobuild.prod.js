@@ -1,6 +1,6 @@
 const path = require('path');
 const merge = require('webpack-merge');
-const baseConfig = require(poth.join(process.env.Home, '.sobuild/templates/sobuild.base.js'));
+const baseConfig = require(path.join(process.env.Home, '.sobuild/templates/sobuild.base.js'));
 
 const soBuildConfig = {
     entry: {},

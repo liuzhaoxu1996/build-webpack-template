@@ -1,11 +1,20 @@
 const path = require('path');
+const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+<%_ if (webpack['mini-css-extract-plugin']) {-%>
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+<%_}-%>
+<%_ if (webpack['css-minimizer-webpack-plugin']) {-%>
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+<%_}-%>
+<%_ if (webpack['terser-webpack-plugin']) {-%>
 const TerserPlugin = require("terser-webpack-plugin");
+<%_}-%>
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+<%_ if (webpack['purgecss-webpack-plugin']) {-%>
 const PurgeCSSPlugin = require("purgecss-webpack-plugin");
-
+<%_}-%>
 module.exports = {
     module: {
         rules: [

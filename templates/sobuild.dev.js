@@ -1,8 +1,11 @@
+const glob = require('glob');
 const path = require('path');
 const merge = require('webpack-merge');
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const baseConfig = require(path.join(process.env.Home, '.sobuild-tempaltes/sobuild.base.js'));
+const projectRoot = process.cwd();
 
 const smp = new SpeedMeasurePlugin();
 const setMPA = () => {
