@@ -33,7 +33,7 @@ To get started:
   ${yellow(
         `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}${installMsg(
             data
-        )}${data}npm run dev`
+        )}npm run dev`
     )}
   
 Documentation can be found at https://github.com/liuzhaoxu1996/sobuild-webpack-template
