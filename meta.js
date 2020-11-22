@@ -83,7 +83,7 @@ module.exports = {
             ".yarnrc",
             ".prettierignore",
             ".prettierrc",
-            "stylelint.config.js"
+            "stylelint.config.js",
             ".gitignore",
         ],
         autoInstall: {
