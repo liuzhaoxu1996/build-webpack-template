@@ -20,10 +20,10 @@ const soBuildConfig = smp.wrap({
 	],
 	resolve: {
 		extensions: [
-			'.js', 
+			'.js',
 			'.css',
 			<%_ if (webpack['ts-loader']) {-%>
-			'ts', 
+			'ts',
 			'tsx',
 			<%_}-%>
 		],

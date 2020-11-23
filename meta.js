@@ -112,6 +112,7 @@ module.exports = {
     filters: {
         '.npmrc': 'autoInstall === "npm"',
         '.yarnrc': 'autoInstall === "yarn"',
+        'tsconfig.json': 'webpack["ts-loader"] === true'
     },
     complete: function (data, { chalk }) {
         const green = chalk.green

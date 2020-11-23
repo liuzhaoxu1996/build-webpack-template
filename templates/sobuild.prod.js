@@ -10,10 +10,10 @@ const soBuildConfig = {
 	},
 	resolve: {
 		extensions: [
-			'.js', 
+			'.js',
 			'.css',
 			<%_ if (webpack['ts-loader']) {-%>
-			'ts', 
+			'ts',
 			'tsx',
 			<%_}-%>
 		],
