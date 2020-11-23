@@ -31,7 +31,7 @@ module.exports = {
                 ],
                 exclude: /node_modules/,
             },
-            <%_ if(webpack['ts-loader']) -%>
+            <%_ if(webpack['ts-loader']) { -%>
             {
                 test: /\.ts(x?)$/,
                 use: [
