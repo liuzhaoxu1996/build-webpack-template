@@ -32,13 +32,25 @@ module.exports = {
                 ],
                 exclude: /node_modules/,
             },
+            <%_ if(webpack['ts-loader']) -%>
+            {
+                test: /\.ts(x?)$/,
+                use: [
+                    "babel-loader?cacheDirectory=true",
+                    {
+                        loader: 'ts-loader'
+                    }
+                ],
+                exclude: /node_modules/,
+            },
+            <%_}-%>
             {
                 test: /.css$/,
                 use: [
                     <%_ if (webpack['mini-css-extract-plugin']) {-%>
                     MiniCssExtractPlugin.loader,
                     <%_ } else {-%>
-                    style-loader,
+                    'style-loader',
                     <%_}-%>
                     'css-loader',
                     <%_ if (webpack['postcss-loader']) {-%>
@@ -55,7 +67,7 @@ module.exports = {
                     <%_ if (webpack['mini-css-extract-plugin']) {-%>
                     MiniCssExtractPlugin.loader,
                     <%_ } else {-%>
-                    style-loader,
+                    'style-loader',
                     <%_}-%>
                     'css-loader',
                     'less-loader',
