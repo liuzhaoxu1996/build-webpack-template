@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 <%_ if (webpack['mini-css-extract-plugin']) {-%>
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -8,11 +8,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 <%_}-%>
 <%_ if (webpack['terser-webpack-plugin']) {-%>
-const TerserPlugin = require("terser-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 <%_}-%>
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 <%_ if (webpack['purgecss-webpack-plugin']) {-%>
-const PurgeCSSPlugin = require("purgecss-webpack-plugin");
+const PurgeCSSPlugin = require('purgecss-webpack-plugin');
 <%_}-%>
 module.exports = {
     module: {
@@ -22,13 +21,13 @@ module.exports = {
                 use: [
                     <%_ if (webpack['thread-loader']) { -%>
                     {
-                        loader: "thread-loader",
+                        loader: 'thread-loader',
                         options: {
                             workers: 3,
                         },
                     },
                     <%_}-%>
-                    "babel-loader?cacheDirectory=true",
+                    'babel-loader?cacheDirectory=true',
                 ],
                 exclude: /node_modules/,
             },
@@ -36,7 +35,7 @@ module.exports = {
             {
                 test: /\.ts(x?)$/,
                 use: [
-                    "babel-loader?cacheDirectory=true",
+                    'babel-loader?cacheDirectory=true',
                     {
                         loader: 'ts-loader'
                     }
@@ -127,7 +126,7 @@ module.exports = {
         <%_ if (webpack['split-chunks-plugin']) {-%>
         splitChunks: {
             // include all types of chunks
-            chunks: 'all'
+            chunks: 'all',
         },
         <%_}-%>
     },
@@ -141,7 +140,6 @@ module.exports = {
         <%_ if (webpack['purgecss-webpack-plugin']) {-%>
         new PurgeCSSPlugin(),
         <%_}-%>
-        new HardSourceWebpackPlugin(),
         new FriendlyErrorsWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
     ],

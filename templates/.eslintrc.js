@@ -1,14 +1,14 @@
 module.exports = {
-    extends: 'eslint:recommended',
+    'extends': './node_modules/@q/sofe-eslint/.eslintrc.js',
     env: {
         node: true,
         es6: true,
         mocha: true,
     },
     parserOptions: {
-        ecmaVersion: 8
+        ecmaVersion: 8,
     },
-    rules: {
+    'rules': {
         'no-console': 'off',
     },
 };
