@@ -1,4 +1,3 @@
-const path = require('path');
 const { merge } = require('webpack-merge');
 const baseConfig = require('./sobuild.base');
 
@@ -10,9 +9,16 @@ const soBuildConfig = {
 		],
 	},
 	resolve: {
-		extensions: ['.js', '.css'],
+		extensions: [
+			'.js', 
+			'.css',
+			<%_ if (webpack['ts-loader']) {-%>
+			'ts', 
+			'tsx',
+			<%_}-%>
+		],
 		alias: {
-		}
+		},
 	},
 	optimization: {
 	},
@@ -21,4 +27,4 @@ const soBuildConfig = {
 	stats: 'errors-only',
 };
 
-module.exports = merge(baseConfig, soBuildConfig)
+module.exports = merge(baseConfig, soBuildConfig);

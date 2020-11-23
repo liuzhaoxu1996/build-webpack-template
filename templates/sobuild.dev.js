@@ -19,15 +19,22 @@ const soBuildConfig = smp.wrap({
 		new BundleAnalyzerPlugin(),
 	],
 	resolve: {
-		extensions: ['.js', '.css', <%_ if (webpack['ts-loader']) {-%>'ts', 'tsx',<%_}-%>],
+		extensions: [
+			'.js', 
+			'.css',
+			<%_ if (webpack['ts-loader']) {-%>
+			'ts', 
+			'tsx',
+			<%_}-%>
+		],
 		alias: {
-		}
+		},
 	},
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
-		hot: true
+		hot: true,
 	},
 	stats: 'errors-only',
 });
 
-module.exports = merge(baseConfig, soBuildConfig)
+module.exports = merge(baseConfig, soBuildConfig);
