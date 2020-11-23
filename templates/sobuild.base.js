@@ -70,7 +70,7 @@ module.exports = {
 					<%_}-%>
 					'css-loader',
 					'less-loader',
-					<%if (webpack['postcss-loader']) {-%>
+					<%_ if (webpack['postcss-loader']) {-%>
 					{
 						loader: 'postcss-loader',
 					}
