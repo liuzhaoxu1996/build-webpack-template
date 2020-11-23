@@ -6,28 +6,28 @@ const baseConfig = require(path.join(process.env.Home, '.sobuild-tempaltes/webpa
 const smp = new SpeedMeasurePlugin();
 
 const soBuildConfig = smp.wrap({
-    entry: {},
-    output: {
-    },
-    module: {
-        rules: [
-        ],
-    },
-    optimization: {
-    },
-    plugins: [
-        new BundleAnalyzerPlugin(),
-    ],
-    resolve: {
-        extensions: ['.js', '.css'],
-        alias: {
-        }
-    }, 
-    devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-        hot: true
-    },
-    stats: 'errors-only',
+	entry: {},
+	output: {
+	},
+	module: {
+		rules: [
+		],
+	},
+	optimization: {
+	},
+	plugins: [
+		new BundleAnalyzerPlugin(),
+	],
+	resolve: {
+		extensions: ['.js', '.css', <%_ if (webpack['ts-loader']) {-%>'ts', 'tsx',<%_}-%>],
+		alias: {
+		}
+	},
+	devServer: {
+		contentBase: path.join(__dirname, 'dist'),
+		hot: true
+	},
+	stats: 'errors-only',
 });
 
 module.exports = merge(baseConfig, soBuildConfig)
