@@ -37,7 +37,7 @@ module.exports = {
                 use: [
                     <%_ if (webpack['mini-css-extract-plugin']) {-%>
                     MiniCssExtractPlugin.loader,
-                    <%_ else {-%>
+                    <%_ } else {-%>
                     style-loader,
                     <%_}-%>
                     'css-loader',
@@ -54,7 +54,7 @@ module.exports = {
                 use: [
                     <%_ if (webpack['mini-css-extract-plugin']) {-%>
                     MiniCssExtractPlugin.loader,
-                    <%_ else {-%>
+                    <%_ } else {-%>
                     style-loader,
                     <%_}-%>
                     'css-loader',
