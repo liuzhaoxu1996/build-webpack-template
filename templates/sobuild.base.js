@@ -13,9 +13,9 @@ const TerserPlugin = require('terser-webpack-plugin');
 const PurgeCSSPlugin = require('purgecss-webpack-plugin');
 <%_}-%>
 module.exports = {
+	entry: {},
+	output: {},
 	module: {
-		entry: {},
-		output: {},
 		rules: [
 			{
 				test: /.js$/,
@@ -96,10 +96,8 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.js', '.json', '.jsx', '.css'],
-		alias: {
-			
-		}
-	}
+		alias: {},
+	},
 	optimization: {
 		minimize: true,
 		minimizer: [
@@ -111,7 +109,7 @@ module.exports = {
 			<%_}-%>
 			<%_ if (webpack['terser-webpack-plugin']) {-%>
 			new TerserPlugin({
-				parallel: true, // 默认值：2*cpu -1
+				parallel: true,
 				terserOptions: {
 					mangle: true, 
 					ie8: true,

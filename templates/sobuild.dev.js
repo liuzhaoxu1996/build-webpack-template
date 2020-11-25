@@ -4,13 +4,14 @@ const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const baseConfig = require('./sobuild.base');
 const smp = new SpeedMeasurePlugin();
+const address = require('address');
 
 const soBuildConfig = smp.wrap({
 	mode: 'development',
 	plugins: [
 		new BundleAnalyzerPlugin({
 			analyzerHost: address.ip(),
-			analyzerPort: 110110,
+			analyzerPort: 60360,
 		}),
 	],
 	devServer: {
