@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 <%_ if (webpack['mini-css-extract-plugin']) {-%>
@@ -15,6 +14,8 @@ const PurgeCSSPlugin = require('purgecss-webpack-plugin');
 <%_}-%>
 module.exports = {
 	module: {
+		entry: {},
+		output: {},
 		rules: [
 			{
 				test: /.js$/,
@@ -146,7 +147,7 @@ module.exports = {
 		new CleanWebpackPlugin(),
 		<%_ if (webpack['mini-css-extract-plugin']) {-%>
 		new MiniCssExtractPlugin({
-			filename: '[name].css',
+			filename: '[name].bundle.css',
 		}),
 		<%_}-%>
 		<%_ if (webpack['purgecss-webpack-plugin']) {-%>
