@@ -153,7 +153,6 @@ module.exports = {
 		new PurgeCSSPlugin(),
 		<%_}-%>
 		new FriendlyErrorsWebpackPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
 	],
 	stats: 'errors-only',
 };
