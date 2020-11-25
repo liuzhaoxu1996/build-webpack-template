@@ -37,8 +37,8 @@ module.exports = {
 				use: [
 					'babel-loader?cacheDirectory=true',
 					{
-						loader: 'ts-loader'
-					}
+						loader: 'ts-loader',
+					},
 				],
 				exclude: /node_modules/,
 			},
@@ -93,6 +93,12 @@ module.exports = {
 			<%_}-%>
 		],
 	},
+	resolve: {
+		extensions: ['.js', '.json', '.jsx', '.css'],
+		alias: {
+			
+		}
+	}
 	optimization: {
 		minimize: true,
 		minimizer: [
@@ -106,16 +112,7 @@ module.exports = {
 			new TerserPlugin({
 				parallel: true, // 默认值：2*cpu -1
 				terserOptions: {
-					ecma: 5,
-					parse: {},
-					compress: {},
-					mangle: true, // Note `mangle.properties` is `false` by default.
-					module: false,
-					// Deprecated
-					output: null,
-					format: null,
-					toplevel: false,
-					nameCache: null,
+					mangle: true, 
 					ie8: true,
 					safari10: true,
 				},
@@ -124,8 +121,24 @@ module.exports = {
 		],
 		<%_ if (webpack['split-chunks-plugin']) {-%>
 		splitChunks: {
-			// include all types of chunks
+			minChunks: 1,
 			chunks: 'all',
+			cacheGroups: {
+				common: {
+					name: 'common',
+					chunks: 'initial',
+					priority: 2,
+					minChunks: 2,
+				},
+				styles: {
+					name: 'common',
+					test: /\.css$/,
+					chunks: 'all',
+					minChunks: 2,
+					enforce: true,
+					priority: 20,
+				},
+			},
 		},
 		<%_}-%>
 	},

@@ -6,35 +6,17 @@ const baseConfig = require('./sobuild.base');
 const smp = new SpeedMeasurePlugin();
 
 const soBuildConfig = smp.wrap({
-	entry: {},
-	output: {
-	},
-	module: {
-		rules: [
-		],
-	},
-	optimization: {
-	},
+	mode: 'development',
 	plugins: [
-		new BundleAnalyzerPlugin(),
+		new BundleAnalyzerPlugin({
+			analyzerHost: address.ip(),
+			analyzerPort: 110110,
+		}),
 	],
-	resolve: {
-		extensions: [
-			'.js',
-			'.css',
-			<%_ if (webpack['ts-loader']) {-%>
-			'ts',
-			'tsx',
-			<%_}-%>
-		],
-		alias: {
-		},
-	},
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
 		hot: true,
 	},
-	stats: 'errors-only',
 });
 
 module.exports = merge(baseConfig, soBuildConfig);
